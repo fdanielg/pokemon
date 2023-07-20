@@ -1,0 +1,46 @@
+.background {
+  background-color: #181c23;
+  min-height: 100vh;
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #181c23;
+
+    .topWrapper {
+      display: flex;
+      flex-direction: column;
+
+      .headerWrapper {
+        display: flex;
+        h1 {
+          color: #a6f750;
+        }
+      }
+
+      .filterWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        padding: 35px 0;
+
+        input {
+          padding: 10px 15px;
+          border: 2px solid #a6f750;;
+          outline: none;
+          border-radius: 8px;
+        }
+
+        h1 {
+          color: #a6f750;
+        }
+      }
+    }
+    .pokemonsWrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+  }
+}

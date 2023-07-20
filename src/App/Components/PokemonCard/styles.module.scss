@@ -1,0 +1,30 @@
+.container {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  width: fit-content;
+  padding: 25px;
+  cursor: pointer;
+
+  .wrapperImage {
+    background-color: #a6f750;
+    border-radius: 50%;
+    padding: 20px;
+  }
+
+  h5 {
+    margin-top: 8px;
+  }
+
+  .wrapperBottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+
+    h1 {
+      font-weight: 600;
+      font-size: 20px;
+    }
+  }
+}
