@@ -2,6 +2,7 @@ import { useState } from "react";
 import Logo from "../../Components/Logo";
 import PokemonCard, { PokemonProps } from "../../Components/PokemonCard";
 import styles from "./styles.module.scss";
+import PokemonModal from "../../Components/PokemonModal";
 
 export default function HomePage() {
   const [openModal, setOpenModal] = useState("");
@@ -165,6 +166,7 @@ export default function HomePage() {
 
   return (
     <>
+    <PokemonModal />
       <div className={styles.background}>
         <div className={styles.container}>
           <div>

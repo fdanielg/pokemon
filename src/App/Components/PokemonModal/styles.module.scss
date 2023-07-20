@@ -1,0 +1,62 @@
+.modal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        background-color: var(--white);
+        min-width: 560px;
+        height: 385px;
+        border-radius: 10px;
+        max-width: 800px;
+        text-align: center;
+      
+        &:focus {
+          outline: none;
+        }
+    }
+    .overlay {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+    }
+
+.container {
+    background-color: #FFFFFF;
+    display: flex;
+    border-radius: 10px;
+    width: 1000px;
+   height: 500px;
+   .image {
+    background-color: rgb(115, 236, 115);
+    display: flex;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    align-items: center;
+    justify-content: center;
+   }
+   .name {
+    font-size: 30px;
+    font-weight: bold;
+    display: grid;
+    padding: 50px;
+   }
+   .cuba {
+    display: flex;
+   }
+   .stats {
+    font-size: 17px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    grid: 55px;
+    align-items: flex-start;
+   }
+}
+    
