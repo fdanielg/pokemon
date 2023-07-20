@@ -6,7 +6,7 @@ export interface PokemonProps {
   type: string;
   id: string;
   image: string;
-  onClick(): void;
+  onClick?: () => void;
 }
 
 export default function PokemonCard({
