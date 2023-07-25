@@ -19,39 +19,63 @@ export default function PokemonCard({
 }: PokemonProps) {
   const [selectedColor, setSelectedColor] = useState("");
 
-  switch (type) {
-    case "dragon":
-      setSelectedColor("#9c1bba ");
-    case "ghost":
-      setSelectedColor("#e7f1de ");
-    case "normal":
-      setSelectedColor("#000000");
-    case "poison":
-      setSelectedColor("#745f64 ");
-    case "grass":
-      setSelectedColor("#64e410 ");
-    case "psychic":
-      setSelectedColor("#e9ad0b");
-    case "fighting":
-      setSelectedColor("#293b80 ");
-    case "electric":
-      setSelectedColor("#e0e21a");
-    case "ice":
-      setSelectedColor("#96f2dc  ");
-    case "fire":
-      setSelectedColor("#ff0011");
-    case "bug":
-      setSelectedColor("#8cacad");
-    case "ground":
-      setSelectedColor("#756521 ");
-    case "rock":
-      setSelectedColor("#cacaca");
-    case "water":
-      setSelectedColor("#96f2dc");
-    case "fairy":
-      setSelectedColor("#f391a0");
-      break;
-  }
+  // switch (type) {
+  //   case "dragon":
+  //     setSelectedColor("#9c1bba ");
+  //     break;
+  //   case "ghost":
+  //     setSelectedColor("#e7f1de ");
+  //     break;
+  //   case "normal":
+  //     setSelectedColor("#000000");
+  //     break;
+  //   case "poison":
+  //     setSelectedColor("#745f64 ");
+  //     break;
+
+  //   case "grass":
+  //     setSelectedColor("#64e410 ");
+  //     break;
+
+  //   case "psychic":
+  //     setSelectedColor("#e9ad0b");
+  //     break;
+
+  //   case "fighting":
+  //     setSelectedColor("#293b80 ");
+  //     break;
+
+  //   case "electric":
+  //     setSelectedColor("#e0e21a");
+  //     break;
+
+  //   case "ice":
+  //     setSelectedColor("#96f2dc  ");
+  //     break;
+
+  //   case "fire":
+  //     setSelectedColor("#ff0011");
+  //     break;
+
+  //   case "bug":
+  //     setSelectedColor("#8cacad");
+  //     break;
+  //   case "ground":
+  //     setSelectedColor("#756521 ");
+  //   break;
+
+  //   case "rock":
+  //     setSelectedColor("#cacaca");
+  //   break;
+
+  //   case "water":
+  //     setSelectedColor("#96f2dc");
+  //   break;
+
+  //   case "fairy":
+  //     setSelectedColor("#f391a0");
+  //     break;
+  // }
   return (
     <div onClick={onClick} className={styles.container}>
       <div className={styles.wrapperImage}>

@@ -19,7 +19,7 @@ export default function HomePage() {
 
   return (
     <>
-      <PokemonModal openModal={openModal} id={selectedId} />
+      <PokemonModal openModal={openModal} id={selectedId} onClose={() => setOpenModal(!openModal)}/>
       <div className={styles.background}>
         <div className={styles.container}>
           <div>
@@ -31,7 +31,7 @@ export default function HomePage() {
               <div className={styles.filterWrapper}>
                 <input placeholder="Nome do pokemon" />
                 <input placeholder="Tipo de pokemon" />
-                <h1>Pokémons: 100</h1>
+                <h1>Pokémons: {pokemons2.length}</h1>
               </div>
             </div>
             <div className={styles.pokemonsWrapper}>

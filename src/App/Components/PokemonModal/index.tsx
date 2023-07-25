@@ -13,17 +13,15 @@ interface Props {
 export default function PokemonModal({ id, openModal }: Props) {
   const [data, setData] = useState<any>();
 
-  const onLoadScreen = () => {
+  useEffect(() => {
     axios
       .get(`http://localhost:8080/pokeada/pokemon/${id}`)
       .then((response) => {
         setData(response.data);
-      });
-  };
+        console.log(response.data)
 
-  useEffect(() => {
-    onLoadScreen();
-  }, []);
+      });
+  }, [id]);
 
   return (
     <ReactModal
@@ -50,7 +48,7 @@ export default function PokemonModal({ id, openModal }: Props) {
               <ProgressBar
                 width="300px"
                 completed={data?.hp}
-                customLabel="100"
+                customLabel={data?.hp}
               />
             </div>
             <div style={{ display: "flex", gap: "0px" }}>
@@ -58,7 +56,7 @@ export default function PokemonModal({ id, openModal }: Props) {
               <ProgressBar
                 width="300px"
                 completed={data?.attack}
-                customLabel="53"
+                customLabel={data?.attack}
               />
             </div>
             <div style={{ display: "flex", gap: "0px" }}>
@@ -66,7 +64,7 @@ export default function PokemonModal({ id, openModal }: Props) {
               <ProgressBar
                 width="300px"
                 completed={data?.defense}
-                customLabel="70"
+                customLabel={data?.defense}
               />
             </div>
             <div style={{ display: "flex", gap: "0px" }}>
@@ -74,7 +72,7 @@ export default function PokemonModal({ id, openModal }: Props) {
               <ProgressBar
                 width="300px"
                 completed={data?.specialAttack}
-                customLabel="40"
+                customLabel={data?.specialAttack}
               />
             </div>
             <div style={{ display: "flex", gap: "0px" }}>
@@ -82,7 +80,7 @@ export default function PokemonModal({ id, openModal }: Props) {
               <ProgressBar
                 width="300px"
                 completed={data?.defense}
-                customLabel="60"
+                customLabel={data?.defense}
               />
             </div>
             <div style={{ display: "flex", gap: "0px" }}>
@@ -90,7 +88,7 @@ export default function PokemonModal({ id, openModal }: Props) {
               <ProgressBar
                 width="300px"
                 completed={data?.speed}
-                customLabel="75"
+                customLabel={data?.speed}
               />
             </div>
           </div>
