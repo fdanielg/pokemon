@@ -7,20 +7,19 @@ import React from "react";
 import axios from "axios";
 
 export default function HomePage() {
-  const [openModal, setOpenModal] = useState("");
-  const [pokemons2, setPokemons2] = useState<PokemonProps[]>([]);
-
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [pokemons2, setPokemons2] = useState<any[]>([]);
+  const [selectedId, setSelectedId] = useState<string>("");
 
   React.useEffect(() => {
     axios.get("http://localhost:8080/pokeada/pokemon").then((response) => {
       setPokemons2(response.data);
-      console.log(pokemons2);
     });
   }, []);
 
   return (
     <>
-    <PokemonModal />
+      <PokemonModal openModal={openModal} id={selectedId} />
       <div className={styles.background}>
         <div className={styles.container}>
           <div>
@@ -39,7 +38,10 @@ export default function HomePage() {
               {pokemons2.map((item) => {
                 return (
                   <PokemonCard
-                    onClick={() => setOpenModal(item.id)}
+                    onClick={() => {
+                      setOpenModal(!openModal);
+                      setSelectedId(item.id);
+                    }}
                     id={item.id}
                     image={item.image}
                     name={item.name}
