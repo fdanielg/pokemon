@@ -3,166 +3,20 @@ import Logo from "../../Components/Logo";
 import PokemonCard, { PokemonProps } from "../../Components/PokemonCard";
 import styles from "./styles.module.scss";
 import PokemonModal from "../../Components/PokemonModal";
+import React from "react";
+import axios from "axios";
 
 export default function HomePage() {
   const [openModal, setOpenModal] = useState("");
-  const pokemons: PokemonProps[] = [
-    {
-      id: "1",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
-      name: "Bulbasaur",
-      type: "Grass",
-    },
-    {
-      id: "2",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
-      name: "Ivysaur",
-      type: "Grass",
-    },
-    {
-      id: "1",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
-      name: "Bulbasaur",
-      type: "Grass",
-    },
-    {
-      id: "2",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
-      name: "Ivysaur",
-      type: "Grass",
-    },
-    {
-      id: "1",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
-      name: "Bulbasaur",
-      type: "Grass",
-    },
-    {
-      id: "2",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
-      name: "Ivysaur",
-      type: "Grass",
-    },
-    {
-      id: "1",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
-      name: "Bulbasaur",
-      type: "Grass",
-    },
-    {
-      id: "2",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
-      name: "Ivysaur",
-      type: "Grass",
-    },
-    {
-      id: "1",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
-      name: "Bulbasaur",
-      type: "Grass",
-    },
-    {
-      id: "2",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
-      name: "Ivysaur",
-      type: "Grass",
-    },
-    {
-      id: "1",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
-      name: "Bulbasaur",
-      type: "Grass",
-    },
-    {
-      id: "2",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
-      name: "Ivysaur",
-      type: "Grass",
-    },
-    {
-      id: "1",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
-      name: "Bulbasaur",
-      type: "Grass",
-    },
-    {
-      id: "2",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
-      name: "Ivysaur",
-      type: "Grass",
-    },
+  const [pokemons2, setPokemons2] = useState<PokemonProps[]>([]);
 
-    {
-      id: "1",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
-      name: "Bulbasaur",
-      type: "Grass",
-    },
-    {
-      id: "2",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
-      name: "Ivysaur",
-      type: "Grass",
-    },
-    {
-      id: "1",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
-      name: "Bulbasaur",
-      type: "Grass",
-    },
-    {
-      id: "2",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
-      name: "Ivysaur",
-      type: "Grass",
-    },
-    {
-      id: "1",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
-      name: "Bulbasaur",
-      type: "Grass",
-    },
-    {
-      id: "2",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
-      name: "Ivysaur",
-      type: "Grass",
-    },
-    {
-      id: "1",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
-      name: "Bulbasaur",
-      type: "Grass",
-    },
-    {
-      id: "2",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
-      name: "Ivysaur",
-      type: "Grass",
-    },
-  ];
+
+  React.useEffect(() => {
+    axios.get("http://localhost:8080/pokeada/pokemon").then((response) => {
+      setPokemons2(response.data);
+      console.log(pokemons2);
+    });
+  }, []);
 
   return (
     <>
@@ -182,7 +36,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className={styles.pokemonsWrapper}>
-              {pokemons.map((item) => {
+              {pokemons2.map((item) => {
                 return (
                   <PokemonCard
                     onClick={() => setOpenModal(item.id)}
